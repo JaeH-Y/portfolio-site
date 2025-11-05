@@ -146,9 +146,10 @@ const flashTextArr = document.querySelectorAll('.animate-flash');
 window.addEventListener('scroll', function(){
   // console.log(viewarea.getBoundingClientRect(), window.innerHeight);
   const nowViewY = viewarea.getBoundingClientRect().y;
+  const viewareaH = viewarea.getBoundingClientRect().height;
   // console.log(nowViewY + window.innerHeight);
   
-  if(nowViewY + window.innerHeight < 200){
+  if(viewareaH + nowViewY < 100){
     flashTextArr.forEach(x => {
       x.classList.remove('animate-flash');
     })
@@ -160,3 +161,17 @@ window.addEventListener('scroll', function(){
   }
   
 })
+
+const hambugerBtn = document.querySelector('.btn-hambuger');
+const navarea = document.querySelector('header .inner nav')
+hambugerBtn.addEventListener('click', mobileNav)
+function mobileNav(){
+  navarea.classList.toggle('show');
+/* 
+  if(navarea.classList.contains('show')){
+    navarea.classList.remove('show');
+  }
+  else{
+    navarea.classList.add('show');
+  } */
+}
